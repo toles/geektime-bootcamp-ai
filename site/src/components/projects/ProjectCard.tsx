@@ -33,9 +33,10 @@ export default function ProjectCard({
     >
       {/* Preview Image */}
       <div
-        className="overflow-hidden relative aspect-video mb-6"
+        className="overflow-hidden relative aspect-video mb-6 rounded-md"
         style={{
-          background: 'linear-gradient(135deg, #6FC2FF 0%, #16AA98 100%)',
+          background: 'linear-gradient(135deg, var(--md-canvas) 0%, rgba(102,112,214,.08) 100%)',
+          border: 'var(--border-subtle)',
         }}
       >
         {previewImage ? (
@@ -43,19 +44,15 @@ export default function ProjectCard({
             <img
               src={getImageUrl(previewImage)}
               alt={title}
-              className="max-w-full max-h-full object-contain shadow-xl border-2 group-hover:scale-[1.02] transition-all duration-300"
-              style={{
-                borderColor: 'rgba(255, 255, 255, 0.2)',
-                backgroundColor: 'var(--md-white)',
-                borderRadius: 0,
-              }}
+              className="max-w-full max-h-full object-contain shadow-card group-hover:scale-[1.02] transition-all duration-200 rounded-sm"
+              style={{ backgroundColor: 'var(--md-surface)' }}
             />
           </div>
         ) : (
           <div className="flex justify-center items-center w-full h-full">
             <span
-              className="text-6xl font-bold opacity-30"
-              style={{ color: 'var(--md-white)' }}
+              className="text-6xl font-bold"
+              style={{ color: 'var(--md-lavender)', opacity: 0.15 }}
             >
               {number}
             </span>
@@ -70,7 +67,7 @@ export default function ProjectCard({
 
       {/* Content */}
       <div>
-        <h3 className="font-bold transition-colors duration-200 text-h3 text-ink mb-3 group-hover:text-sky">
+        <h3 className="font-bold transition-colors duration-200 text-h3 text-ink mb-3 group-hover:text-lavender">
           {title}
         </h3>
 
@@ -111,7 +108,7 @@ export default function ProjectCard({
         </div>
 
         {/* CTA */}
-        <div className="flex items-center font-bold transition-all duration-200 text-ui text-sky gap-1 group-hover:gap-3">
+        <div className="flex items-center font-bold transition-all duration-200 text-ui gap-1 group-hover:gap-3" style={{ color: 'var(--md-lavender)' }}>
           <span>查看详情</span>
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
         </div>

@@ -1,5 +1,4 @@
 import { Github } from 'lucide-react';
-
 import { getUrl } from '../../utils/url';
 
 export default function Footer() {
@@ -29,14 +28,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-12 border-t-2 border-graphite bg-cloud">
+    <footer
+      style={{
+        backgroundColor: 'var(--md-surface)',
+        borderTop: 'var(--border-subtle)',
+        marginTop: 0,
+      }}
+    >
       <div className="py-12 md-container">
-        <div className="grid grid-cols-1 gap-2 mb-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <h3 className="text-h3 font-bold uppercase tracking-[0.08em] bg-gradient-to-tr from-sunbeam to-sky text-transparent bg-clip-text mb-6">
+            <p
+              className="font-bold mb-3"
+              style={{ color: 'var(--md-ink)', fontSize: '16px', letterSpacing: '-0.01em' }}
+            >
               陈天 AI 训练营
-            </h3>
-            <p className="mb-6 text-body text-slate">
+            </p>
+            <p className="mb-5 text-sm" style={{ color: 'var(--md-slate)', lineHeight: '1.6' }}>
               让 AI 成为你的编程超能力
             </p>
             <span className="md-badge">✨ 8周精通 AI 编程</span>
@@ -44,15 +52,19 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-body font-bold uppercase tracking-[0.08em] text-ink mb-6">
+              <p
+                className="text-xs font-bold uppercase tracking-widest mb-5"
+                style={{ color: 'var(--md-ink)', letterSpacing: '0.06em' }}
+              >
                 {category}
-              </h4>
-              <ul className="flex flex-col gap-5 text-body text-slate">
+              </p>
+              <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link.href}>
                     <a
                       href={getUrl(link.href)}
-                      className="inline-flex gap-2 items-center pb-1 border-b-2 border-transparent transition-colors duration-150 hover:border-graphite hover:text-ink"
+                      className="text-sm transition-colors duration-150 hover:text-lavender"
+                      style={{ color: 'var(--md-slate)' }}
                     >
                       {link.label}
                     </a>
@@ -63,9 +75,14 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-8 items-center border-t-2 border-graphite pt-space-10 text-ui text-slate md:flex-row md:justify-between">
-          <p>© {currentYear} 陈天极客时间 AI 训练营 • All rights reserved.</p>
-          <div className="flex gap-8 items-center">
+        <div
+          className="flex flex-col gap-6 items-center pt-8 md:flex-row md:justify-between"
+          style={{ borderTop: 'var(--border-subtle)' }}
+        >
+          <p className="text-xs" style={{ color: 'var(--md-slate)' }}>
+            © {currentYear} 陈天极客时间 AI 训练营 • All rights reserved.
+          </p>
+          <div className="flex gap-4 items-center">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -75,9 +92,12 @@ export default function Footer() {
                   aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 border-0 transition-transform duration-150 rounded-micro text-ink hover:-translate-y-1 hover:bg-softBlue"
+                  className="p-2 rounded-md transition-colors duration-150"
+                  style={{ color: 'var(--md-slate)' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--md-ink-08)')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
                 >
-                  <Icon size={20} />
+                  <Icon size={18} />
                 </a>
               );
             })}

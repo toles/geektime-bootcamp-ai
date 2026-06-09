@@ -6,7 +6,7 @@
   background: var(--md-graphite);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-dialog);
 }
 
 .presentation-carousel.fullscreen {
@@ -287,7 +287,7 @@
 
 .presentation-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-dialog);
 }
 
 .presentation-card-image {
